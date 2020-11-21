@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/companyIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginEnd="6dip"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/foodType"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/companyIcon"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/companyIcon" />
+
+    <TextView
+        android:id="@+id/foodType"
+        android:layout_width="80sp"
+        android:layout_height="20dip"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/companyIcon"
+        android:layout_toRightOf="@id/companyIcon"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Indyjskie"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/companyLocation"
+        android:layout_width="120sp"
+        android:layout_height="20dip"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/foodType"
+        android:layout_toRightOf="@id/foodType"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Wąwozowa 104/3"
+        android:textSize="10sp" />
+
+
+    <TextView
+        android:id="@+id/openTime"
+        android:layout_width="80sp"
+        android:layout_height="20dip"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/companyLocation"
+        android:layout_toRightOf="@id/companyLocation"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="12:00-22:00"
+        android:textSize="10sp" />
+
+
+</RelativeLayout>

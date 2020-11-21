@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/companyIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginEnd="6dip"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="140sp"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/companyIcon"
+        android:layout_toEndOf="@id/companyIcon"
+        android:gravity="center_vertical"
+        android:text="Strips x 5 dla chudziasów" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="80sp"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/textView1"
+        android:layout_toEndOf="@id/textView1"
+        android:gravity="center_vertical"
+        android:text="500zł" />
+
+    <Button
+        android:id="@+id/addToCartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textView2"
+        android:layout_toEndOf="@id/textView2"
+        android:text="+" />
+
+
+</RelativeLayout>

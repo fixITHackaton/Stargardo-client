@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Stargardo-client</string>
+    <string name="search_text">Szukaj</string>
+    <string name="food_button_text">Jedzenie</string>
+    <string name="retail_button_text">Zakupy</string>
+    <string name="services_button_text">Usługi</string>
+    <string name="log_in_button_text">Zaloguj</string>
+    <string name="cart_button_text">Koszyk</string>
+</resources>
