@@ -2,6 +2,7 @@ package pl.fixit.stargardo.client.food;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,136 +53,144 @@ public class ListCompanyActivity extends AppCompatActivity {
 
 
         List<CompanyDto> companiesList = new ArrayList<>();
-//        try {
-//            URL url = new URL("http://localhost:8080/companies");
-//            HttpURLConnection con = (HttpURLConnection)url.openConnection();
-//            con.setRequestMethod("POST");
-//            con.setRequestProperty("Content-Type", "application/json; utf-8");
-//            con.setRequestProperty("Accept", "application/json");
-//            con.setDoOutput(true);
-//
-//            CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
-//            searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
-//            JsonObject jsonObject = new JsonObject();
-//            OutputStream os = con.getOutputStream();
-//            byte[] input = jsonObject.toString().getBytes(StandardCharsets.UTF_8);
-//            os.write(input, 0, input.length);
-//
-//            BufferedReader br = new BufferedReader(
-//                    new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-//
-//            StringBuilder response = new StringBuilder();
-//            String responseLine = null;
-//            while ((responseLine = br.readLine()) != null) {
-//                response.append(responseLine.trim());
-//            }
-//            Log.d("kurła", response.toString());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
-//        AndroidNetworking.post("localhost:8080/companies")
+//        AsyncTask.execute(() -> {
+//            try {
+//                URL url = new URL("http://localhost:8080/companies");
+//                HttpURLConnection con = (HttpURLConnection)url.openConnection();
+//                con.setRequestMethod("POST");
+//                con.setRequestProperty("Content-Type", "application/json; utf-8");
+//                con.setRequestProperty("Accept", "application/json");
+//                con.setDoOutput(true);
+//
+//                CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
+//                searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
+//                JsonObject jsonObject = new JsonObject();
+//                OutputStream os = con.getOutputStream();
+//                byte[] input = jsonObject.toString().getBytes(StandardCharsets.UTF_8);
+//                os.write(input, 0, input.length);
+//
+//                BufferedReader br = new BufferedReader(
+//                        new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
+//
+//                StringBuilder response = new StringBuilder();
+//                String responseLine = null;
+//                while ((responseLine = br.readLine()) != null) {
+//                    response.append(responseLine.trim());
+//                }
+//                Log.d("kurła", response.toString());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+
+
+        CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
+        searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
+        AndroidNetworking.post("http://10.0.2.2:8080/companies")
 //                .setPriority(Priority.MEDIUM)
 //                .setTag("test")
-//                .build()
-//                .getAsObjectList(CompanyDto.class, new ParsedRequestListener<List<CompanyDto>>() {
-//                    @Override
-//                    public void onResponse(List<CompanyDto> users) {
-//                        companiesList.addAll(users);
-//                        Log.d("weszło kurła", "kurła");
-//                    }
-//                    @Override
-//                    public void onError(ANError anError) {
-//                        Log.d("nie kurła", anError.toString());
-//                    }
-//                });
-//        String[] values = new String[] { "Kebab", "Kurczaki", "Hindus", "Chińskie" };
+                .addHeaders("Content-Type", "application/json")
+                .addApplicationJsonBody(searchCriteriaDto)
+                .build()
+                .getAsObjectList(CompanyDto.class, new ParsedRequestListener<List<CompanyDto>>() {
+                    @Override
+                    public void onResponse(List<CompanyDto> users) {
+                        companiesList.addAll(users);
+                        Log.d("weszło kurła", "kurła");
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("nie kurła", anError.toString());
+                    }
+                });
 
 
 
-        ////////////////////////////////////////////
-        long l = 0L;
-        CompanyDto companyDto = new CompanyDto();
-        companyDto.setName("Pizzeria Maximus");
-        List<CompanySubcategoryDto> foodCategories = new ArrayList<>();
-        CompanySubcategoryDto companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("pizzeria1");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Kebab Layla");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("kebab1");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Sushi zushi");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Sushi");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("sushi1");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Pizza-hut");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("pizzeria2");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Kebab King");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("kebab2");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Izumi Sushi");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Sushi");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("sushi2");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Pizzeria Domino");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("pizzeria3");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Kuchnia Ashmira");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("kebab3");
-        companiesList.add(companyDto);
-
-        companyDto = new CompanyDto();
-        companyDto.setName("Pizza Nocą");
-        foodCategories = new ArrayList<>();
-        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
-        foodCategories.add(companySubcategoryDto);
-        companyDto.setCompanySubcategories(foodCategories);
-        companyDto.setDescription("pizzeria4");
-        companiesList.add(companyDto);
-        /////////////////////////////////////////////////////////
+//        ////////////////////////////////////////////
+//        long l = 0L;
+//        CompanyDto companyDto = new CompanyDto();
+//        companyDto.setName("Pizzeria Maximus");
+//        List<CompanySubcategoryDto> foodCategories = new ArrayList<>();
+//        CompanySubcategoryDto companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("pizzeria1");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Kebab Layla");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("kebab1");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Sushi zushi");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Sushi");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("sushi1");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Pizza-hut");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("pizzeria2");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Kebab King");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("kebab2");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Izumi Sushi");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Sushi");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("sushi2");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Pizzeria Domino");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("pizzeria3");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Kuchnia Ashmira");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Turecka");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("kebab3");
+//        companiesList.add(companyDto);
+//
+//        companyDto = new CompanyDto();
+//        companyDto.setName("Pizza Nocą");
+//        foodCategories = new ArrayList<>();
+//        companySubcategoryDto = new CompanySubcategoryDto(l + 1, "Włoska");
+//        foodCategories.add(companySubcategoryDto);
+//        companyDto.setCompanySubcategories(foodCategories);
+//        companyDto.setDescription("pizzeria4");
+//        companiesList.add(companyDto);
+//        /////////////////////////////////////////////////////////
 
         final CompanyListAdapter adapter = new CompanyListAdapter(this, companiesList);
         listView.setAdapter(adapter);

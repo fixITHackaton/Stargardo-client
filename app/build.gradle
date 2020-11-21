@@ -35,7 +35,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation files('libs/Stargardo-common-0.0.1-SNAPSHOT.jar')
+    implementation files('libs/Stargardo-common-0.0.2-SNAPSHOT.jar')
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
