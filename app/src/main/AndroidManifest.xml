@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stargardo"
         android:usesCleartextTraffic="true">
+        <activity android:name=".company.CompanyUserActiveOrdersActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +22,8 @@
         </activity>
         <activity android:name=".food.ListCompanyActivity" />
         <activity android:name=".food.ListProductActivity" />
+
         <activity android:name=".food.CategoryActivity" />
-    </application>
+        <activity android:name=".login.LoginActivity" />    </application>
 
 </manifest>

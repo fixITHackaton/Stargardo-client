@@ -15,4 +15,8 @@
     <string name="italian">Włoskie</string>
     <string name="groceries">Zakupy</string>
     <string name="category">Kategorie</string>
+    <string name="username_edittext_text">Nazwa użytkownika</string>
+    <string name="password_edittext_text">Hasło</string>
+    <string name="sign_in_button_text">Zaloguj</string>
+    <string name="register_textview_text">Chcesz dołączyć? Zarejestruj się</string>
 </resources>
