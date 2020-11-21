@@ -5,8 +5,8 @@
     android:padding="6dip" >
 
     <ImageView
-        android:id="@+id/companyIcon"
-        android:layout_width="wrap_content"
+        android:id="@+id/productIcon"
+        android:layout_width="100dp"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
@@ -16,30 +16,31 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/productName"
         android:layout_width="140sp"
         android:layout_height="fill_parent"
-        android:layout_toRightOf="@id/companyIcon"
-        android:layout_toEndOf="@id/companyIcon"
+        android:layout_toRightOf="@id/productIcon"
+        android:layout_toEndOf="@id/productIcon"
         android:gravity="center_vertical"
-        android:text="Strips x 5 dla chudziasów" />
+        android:text=""
+        android:textSize="16sp" />
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/productPrice"
         android:layout_width="80sp"
         android:layout_height="fill_parent"
-        android:layout_toRightOf="@id/textView1"
-        android:layout_toEndOf="@id/textView1"
+        android:layout_toRightOf="@id/productName"
+        android:layout_toEndOf="@id/productName"
         android:gravity="center_vertical"
-        android:text="500zł" />
+        android:text="" />
 
     <Button
         android:id="@+id/addToCartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/textView2"
-        android:layout_toEndOf="@id/textView2"
+        android:layout_toRightOf="@id/productPrice"
+        android:layout_toEndOf="@id/productPrice"
         android:text="+" />
 
 

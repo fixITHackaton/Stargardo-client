@@ -1,25 +1,32 @@
 package pl.fixit.stargardo.client.food;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.List;
 
 import pl.fixit.stargardo.client.core.Cart;
 import pl.fixit.stargardo.client.R;
+import pl.fixit.stargardo.common.company.dto.CompanyDto;
+import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
 import pl.fixit.stargardo.common.product.dto.ProductDto;
 
-class ProductListAdapter extends ArrayAdapter<String> {
+class ProductListAdapter extends ArrayAdapter<ProductDto> {
     private final Context context;
-    private final String[] values;
+    private final List<ProductDto> products;
 
-    public ProductListAdapter(Context context, String[] values) {
-        super(context, -1, values);
+    public ProductListAdapter(Context context, List<ProductDto> products) {
+        super(context, -1, products);
         this.context = context;
-        this.values = values;
+        this.products = products;
     }
 
     @Override
@@ -30,18 +37,16 @@ class ProductListAdapter extends ArrayAdapter<String> {
             convertView = inflater.inflate(R.layout.adapter_food_product_list, parent, false);
         }
 
-        TextView firstLineTextView = convertView.findViewById(R.id.textView1);
-        TextView secondLineTextView = convertView.findViewById(R.id.textView2);
-//        ImageView imageView = convertView.findViewById(R.id.icon);
-        firstLineTextView.setText(values[position]);
-        secondLineTextView.setText("50zł");
-//        imageView.setImageResource(R.drawable.ic_launcher_background);
-
-        Button addToCart = convertView.findViewById(R.id.addToCartButton);
-        addToCart.setOnClickListener(v -> {
-            Cart.addProduct(new ProductDto());
-        });
-
+        ProductDto product = products.get(position);
+        TextView productName = convertView.findViewById(R.id.productName);
+        productName.setText(product.getName());
+        TextView productPrice = convertView.findViewById(R.id.productPrice);
+        productPrice.setText(product.getPrice().toString() + "zł");
+        ImageView companyIcon = convertView.findViewById(R.id.productIcon);
+        Resources res = context.getResources();
+        int resID = res.getIdentifier(product.getDescription() , "drawable", context.getPackageName());
+        Drawable drawable = res.getDrawable(resID);
+        companyIcon.setImageDrawable(drawable);
         return convertView;
     }
 }
