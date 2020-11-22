@@ -6,11 +6,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -46,22 +48,23 @@ class CompanyListAdapter extends ArrayAdapter<CompanyDto> {
         TextView foodType = convertView.findViewById(R.id.foodType);
         StringBuilder foodTypes = new StringBuilder();
         List<CompanySubcategoryDto> foodCategories = company.getCompanySubcategories();
-        for (CompanySubcategoryDto foodCategory : foodCategories) foodTypes.append(foodCategory.getName());
+        for (CompanySubcategoryDto foodCategory : foodCategories) {
+            foodTypes.append(foodCategory.getName());
+            foodTypes.append(", ");
+        }
+        foodTypes.delete(foodTypes.length() - 2, foodTypes.length());
         foodType.setText(foodTypes);
         TextView companyLocation = convertView.findViewById(R.id.companyLocation);
         companyLocation.setText(company.getAddress());
         TextView openTime = convertView.findViewById(R.id.openTime);
-        openTime.setText("10:00-22:00");
-//        ImageView companyIcon = convertView.findViewById(R.id.companyIcon);
-//        Resources res = context.getResources();
-//        String mDrawableName = "logo_default";
-//        int resID = res.getIdentifier(company.getDescription() , "drawable", context.getPackageName());
-//        Drawable drawable = res.getDrawable(resID);
-//        companyIcon.setImageDrawable(drawable);
+        openTime.setText(company.getOpeningHour() + "-" + company.getClosingHour());
+
         ImageView companyIcon = convertView.findViewById(R.id.companyIcon);
+        RelativeLayout.LayoutParams imageProcessParams =
+                (RelativeLayout.LayoutParams)companyIcon.getLayoutParams();
         byte[] image = Base64.getDecoder().decode(company.getImage());
         Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length);
-        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, companyIcon.getWidth(), companyIcon.getHeight(), false));
+        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, imageProcessParams.width, imageProcessParams.height, false));
         return convertView;
     }
 }

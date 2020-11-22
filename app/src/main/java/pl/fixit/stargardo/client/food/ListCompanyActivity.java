@@ -1,8 +1,7 @@
 package pl.fixit.stargardo.client.food;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,29 +12,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.google.gson.JsonObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 import pl.fixit.stargardo.client.R;
 import pl.fixit.stargardo.common.company.dto.CompanyDto;
-import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
 import pl.fixit.stargardo.common.company.enums.CompanyCategory;
 import pl.fixit.stargardo.common.company.restaurant.dto.CompanySearchCriteriaDto;
-import retrofit2.Retrofit;
 
 public class ListCompanyActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,9 +44,8 @@ public class ListCompanyActivity extends AppCompatActivity implements View.OnCli
 
         CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
         searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
+        Activity activity = this;
         AndroidNetworking.post("http://10.0.2.2:8080/companies")
-//                .setPriority(Priority.MEDIUM)
-//                .setTag("test")
                 .addHeaders("Content-Type", "application/json")
                 .addApplicationJsonBody(searchCriteriaDto)
                 .build()
@@ -69,11 +53,12 @@ public class ListCompanyActivity extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onResponse(List<CompanyDto> users) {
                         companiesList.addAll(users);
-                        Log.d("weszło kurła", "kurła");
+                        final CompanyListAdapter adapter = new CompanyListAdapter(activity, companiesList);
+                        listView.setAdapter(adapter);
                     }
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("nie kurła", anError.toString());
+                        Log.e("REST-POST ERROR", anError.toString());
                     }
                 });
 
@@ -164,10 +149,10 @@ public class ListCompanyActivity extends AppCompatActivity implements View.OnCli
 //        companyDto.setCompanySubcategories(foodCategories);
 //        companyDto.setDescription("pizzeria4");
 //        companiesList.add(companyDto);
-        /////////////////////////////////////////////////////////
 
-        final CompanyListAdapter adapter = new CompanyListAdapter(this, companiesList);
-        listView.setAdapter(adapter);
+//        final CompanyListAdapter adapter = new CompanyListAdapter(this, companiesList);
+//        listView.setAdapter(adapter);
+        /////////////////////////////////////////////////////////
     }
 
     public void onClick(View v) {

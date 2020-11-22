@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/productIcon"
         android:layout_width="100dp"
-        android:layout_height="fill_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dip"
