@@ -19,7 +19,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_alignParentBottom="true"
-            android:gravity="center_vertical"
             android:text="Menu"
             android:textSize="16sp" />
     </LinearLayout>
