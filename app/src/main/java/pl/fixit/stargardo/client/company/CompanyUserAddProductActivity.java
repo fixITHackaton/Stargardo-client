@@ -61,26 +61,28 @@ public class CompanyUserAddProductActivity extends AppCompatActivity implements 
 
     private void saveProduct() {
         Activity activity = this;
-        ProductDto productDto = new ProductDto();
-        productDto.setCompanyId(COMPANY_ID);
-        productDto.setName(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
-        productDto.setPrice(Double.valueOf(((TextView) findViewById(R.id.addProductPrice)).getText().toString()));
-        productDto.setDescription(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
-        //productDto.setPhoto(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
-        AndroidNetworking.post("http://10.0.2.2:8080/company/" + COMPANY_ID + "/addProduct")
-                .addHeaders("Content-Type", "application/json")
-                .addApplicationJsonBody(productDto)
-                .build()
-                .getAsObject(Long.class, new ParsedRequestListener<Long>() {
-                    @Override
-                    public void onResponse(Long productId) {
-                        Toast.makeText(activity, "Produkt zapisany poprawnie", Toast.LENGTH_LONG).show();
-                    }
-                    @Override
-                    public void onError(ANError anError) {
-                        Toast.makeText(activity, "Błąd zapisu", Toast.LENGTH_LONG).show();
-                    }
-                });
+        Toast.makeText(activity, "Funkcjonalność do implementacji", Toast.LENGTH_LONG).show();
+
+//        ProductDto productDto = new ProductDto();
+//        productDto.setCompanyId(COMPANY_ID);
+//        productDto.setName(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
+//        productDto.setPrice(Double.valueOf(((TextView) findViewById(R.id.addProductPrice)).getText().toString()));
+//        productDto.setDescription(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
+//        //productDto.setPhoto(String.valueOf(((TextView) findViewById(R.id.addProductName)).getText()));
+//        AndroidNetworking.post("http://10.0.2.2:8080/company/" + COMPANY_ID + "/addProduct")
+//                .addHeaders("Content-Type", "application/json")
+//                .addApplicationJsonBody(productDto)
+//                .build()
+//                .getAsObject(Long.class, new ParsedRequestListener<Long>() {
+//                    @Override
+//                    public void onResponse(Long productId) {
+//                        Toast.makeText(activity, "Produkt zapisany poprawnie", Toast.LENGTH_LONG).show();
+//                    }
+//                    @Override
+//                    public void onError(ANError anError) {
+//                        Toast.makeText(activity, "Błąd zapisu", Toast.LENGTH_LONG).show();
+//                    }
+//                });
     }
 
     @Override
