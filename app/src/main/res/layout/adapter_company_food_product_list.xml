@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <TextView
+        android:id="@+id/orderId"
+        android:layout_width="145dp"
+        android:layout_height="21dp"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/orderAddress"
+        android:layout_width="145dp"
+        android:layout_height="21dp"
+        android:layout_alignTop="@id/orderId"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="31dp"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/orderStatus"
+        android:layout_width="115dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_toEndOf="@id/orderId"
+        android:layout_toRightOf="@id/orderId"
+        android:gravity="center_vertical"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/orderDate"
+        android:layout_width="115dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/orderAddress"
+        android:layout_toRightOf="@id/orderAddress"
+        android:gravity="center_vertical"
+        android:text="" />
+
+    <Button
+        android:id="@+id/orderProgressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_toEndOf="@id/orderDate"
+        android:layout_toRightOf="@id/orderDate"
+        android:text="+" />
+
+</RelativeLayout>
