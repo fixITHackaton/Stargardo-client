@@ -5,7 +5,7 @@
     android:padding="6dip" >
 
     <ImageView
-        android:id="@+id/productIcon"
+        android:id="@+id/companyIcon"
         android:layout_width="100sp"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
@@ -23,21 +23,21 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/productIcon"
+        android:layout_toRightOf="@id/companyIcon"
         android:gravity="center_vertical"
         android:text=""
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/productIcon" />
+        android:layout_toEndOf="@id/companyIcon" />
 
     <TextView
         android:id="@+id/foodType"
         android:layout_width="80sp"
         android:layout_height="20dip"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/productIcon"
-        android:layout_toRightOf="@id/productIcon"
+        android:layout_toEndOf="@id/companyIcon"
+        android:layout_toRightOf="@id/companyIcon"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="Indyjskie"

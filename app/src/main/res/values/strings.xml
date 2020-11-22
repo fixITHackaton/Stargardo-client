@@ -7,4 +7,12 @@
     <string name="log_in_button_text">Zaloguj</string>
     <string name="cart_button_text">Koszyk</string>
     <string name="backend_get_companies">http://localhost:8080/companies</string>
+    <string name="category_title">Kategorie</string>
+    <string name="coffe_house">Kawarnie</string>
+    <string name="sushi">Sushi</string>
+    <string name="oriental">Orientalne</string>
+    <string name="american">Amerykańskie</string>
+    <string name="italian">Włoskie</string>
+    <string name="groceries">Zakupy</string>
+    <string name="category">Kategorie</string>
 </resources>

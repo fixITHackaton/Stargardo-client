@@ -7,16 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-import pl.fixit.stargardo.client.core.Cart;
 import pl.fixit.stargardo.client.R;
-import pl.fixit.stargardo.common.company.dto.CompanyDto;
-import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
 import pl.fixit.stargardo.common.product.dto.ProductDto;
 
 class ProductListAdapter extends ArrayAdapter<ProductDto> {
@@ -42,11 +38,11 @@ class ProductListAdapter extends ArrayAdapter<ProductDto> {
         productName.setText(product.getName());
         TextView productPrice = convertView.findViewById(R.id.productPrice);
         productPrice.setText(product.getPrice().toString() + "zł");
-        ImageView companyIcon = convertView.findViewById(R.id.productIcon);
+        ImageView productIcon = convertView.findViewById(R.id.productIcon);
         Resources res = context.getResources();
         int resID = res.getIdentifier(product.getDescription() , "drawable", context.getPackageName());
         Drawable drawable = res.getDrawable(resID);
-        companyIcon.setImageDrawable(drawable);
+        productIcon.setImageDrawable(drawable);
         return convertView;
     }
 }

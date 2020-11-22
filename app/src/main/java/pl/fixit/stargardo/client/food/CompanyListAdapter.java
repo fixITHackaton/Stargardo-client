@@ -2,7 +2,10 @@ package pl.fixit.stargardo.client.food;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
+import java.util.Base64;
 import java.util.List;
 
 import pl.fixit.stargardo.client.R;
@@ -18,7 +24,7 @@ import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
 
 class CompanyListAdapter extends ArrayAdapter<CompanyDto> {
     private final Context context;
-    private List<CompanyDto> companies;
+    private final List<CompanyDto> companies;
 
     public CompanyListAdapter(Context context, List<CompanyDto> companies) {
         super(context, -1, companies);
@@ -26,6 +32,7 @@ class CompanyListAdapter extends ArrayAdapter<CompanyDto> {
         this.companies = companies;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -42,19 +49,19 @@ class CompanyListAdapter extends ArrayAdapter<CompanyDto> {
         for (CompanySubcategoryDto foodCategory : foodCategories) foodTypes.append(foodCategory.getName());
         foodType.setText(foodTypes);
         TextView companyLocation = convertView.findViewById(R.id.companyLocation);
-        companyLocation.setText("Stargardzka 5");
+        companyLocation.setText(company.getAddress());
         TextView openTime = convertView.findViewById(R.id.openTime);
         openTime.setText("10:00-22:00");
-        ImageView companyIcon = convertView.findViewById(R.id.productIcon);
-        Resources res = context.getResources();
-        String mDrawableName = "logo_default";
-        int resID = res.getIdentifier(company.getDescription() , "drawable", context.getPackageName());
-        Drawable drawable = res.getDrawable(resID);
-        companyIcon.setImageDrawable(drawable);
 //        ImageView companyIcon = convertView.findViewById(R.id.companyIcon);
-//        Bitmap bmp = BitmapFactory.decodeByteArray(company.getImage(), 0, company.getImage().length);
-//        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, companyIcon.getWidth(), companyIcon.getHeight(), false));
-
+//        Resources res = context.getResources();
+//        String mDrawableName = "logo_default";
+//        int resID = res.getIdentifier(company.getDescription() , "drawable", context.getPackageName());
+//        Drawable drawable = res.getDrawable(resID);
+//        companyIcon.setImageDrawable(drawable);
+        ImageView companyIcon = convertView.findViewById(R.id.companyIcon);
+        byte[] image = Base64.getDecoder().decode(company.getImage());
+        Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length);
+        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, companyIcon.getWidth(), companyIcon.getHeight(), false));
         return convertView;
     }
 }

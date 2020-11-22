@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.annotation.RequiresApi;
@@ -36,13 +37,15 @@ import pl.fixit.stargardo.common.company.enums.CompanyCategory;
 import pl.fixit.stargardo.common.company.restaurant.dto.CompanySearchCriteriaDto;
 import retrofit2.Retrofit;
 
-public class ListCompanyActivity extends AppCompatActivity {
+public class ListCompanyActivity extends AppCompatActivity implements View.OnClickListener {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_company_list);
+        View categoriesButton = findViewById(R.id.categoriesButton);
+        categoriesButton.setOnClickListener(this);
 
         final ListView listView = findViewById(R.id.companyListView);
         listView.setOnItemClickListener((parent, view, position, id) -> {
@@ -53,38 +56,6 @@ public class ListCompanyActivity extends AppCompatActivity {
 
 
         List<CompanyDto> companiesList = new ArrayList<>();
-
-//        AsyncTask.execute(() -> {
-//            try {
-//                URL url = new URL("http://localhost:8080/companies");
-//                HttpURLConnection con = (HttpURLConnection)url.openConnection();
-//                con.setRequestMethod("POST");
-//                con.setRequestProperty("Content-Type", "application/json; utf-8");
-//                con.setRequestProperty("Accept", "application/json");
-//                con.setDoOutput(true);
-//
-//                CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
-//                searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
-//                JsonObject jsonObject = new JsonObject();
-//                OutputStream os = con.getOutputStream();
-//                byte[] input = jsonObject.toString().getBytes(StandardCharsets.UTF_8);
-//                os.write(input, 0, input.length);
-//
-//                BufferedReader br = new BufferedReader(
-//                        new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-//
-//                StringBuilder response = new StringBuilder();
-//                String responseLine = null;
-//                while ((responseLine = br.readLine()) != null) {
-//                    response.append(responseLine.trim());
-//                }
-//                Log.d("kurła", response.toString());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
-
-
 
         CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
         searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
@@ -108,6 +79,9 @@ public class ListCompanyActivity extends AppCompatActivity {
 
 
 
+
+        ////////////////////////////////////////////
+        //////// DANE DO MOCKOW
 //        ////////////////////////////////////////////
 //        long l = 0L;
 //        CompanyDto companyDto = new CompanyDto();
@@ -190,9 +164,16 @@ public class ListCompanyActivity extends AppCompatActivity {
 //        companyDto.setCompanySubcategories(foodCategories);
 //        companyDto.setDescription("pizzeria4");
 //        companiesList.add(companyDto);
-//        /////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////
 
         final CompanyListAdapter adapter = new CompanyListAdapter(this, companiesList);
         listView.setAdapter(adapter);
+    }
+
+    public void onClick(View v) {
+        if (v.getId() == R.id.categoriesButton) {
+            Intent k = new Intent(this, CategoryActivity.class);
+            startActivity(k);
+        }
     }
 }

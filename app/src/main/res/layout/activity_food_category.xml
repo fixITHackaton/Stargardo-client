@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/categoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/category_title"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/category_groceries"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/categoryAmerican"
+        app:layout_constraintEnd_toStartOf="@+id/categoryItalian"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/groceries" />
+
+    <TextView
+        android:id="@+id/groceriesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/groceries"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/category_groceries"
+        app:layout_constraintStart_toStartOf="@+id/category_groceries"
+        app:layout_constraintTop_toBottomOf="@+id/category_groceries" />
+
+    <Button
+        android:id="@+id/categoryItalian"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/italian"
+        app:layout_constraintBottom_toTopOf="@+id/categoryOriental"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/category_groceries"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <TextView
+        android:id="@+id/italianTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/italian"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/categoryItalian"
+        app:layout_constraintStart_toStartOf="@+id/categoryItalian"
+        app:layout_constraintTop_toBottomOf="@+id/categoryItalian" />
+
+    <Button
+        android:id="@+id/categoryAmerican"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/american"
+        app:layout_constraintBottom_toTopOf="@+id/categorySushi"
+        app:layout_constraintEnd_toStartOf="@+id/categoryOriental"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_groceries" />
+
+    <TextView
+        android:id="@+id/americanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/american"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/categoryAmerican"
+        app:layout_constraintStart_toStartOf="@+id/categoryAmerican"
+        app:layout_constraintTop_toBottomOf="@+id/categoryAmerican" />
+
+    <Button
+        android:id="@+id/categoryOriental"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/oriental"
+        app:layout_constraintBottom_toTopOf="@+id/categoryCoffee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/categoryAmerican"
+        app:layout_constraintTop_toBottomOf="@+id/categoryItalian" />
+
+    <TextView
+        android:id="@+id/orientalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/oriental"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/categoryOriental"
+        app:layout_constraintStart_toStartOf="@+id/categoryOriental"
+        app:layout_constraintTop_toBottomOf="@+id/categoryOriental" />
+
+
+    <Button
+        android:id="@+id/categorySushi"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/sushi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/categoryCoffee"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/sushiTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/sushi"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/categorySushi"
+        app:layout_constraintStart_toStartOf="@+id/categorySushi"
+        app:layout_constraintTop_toBottomOf="@+id/categorySushi" />
+
+
+    <Button
+        android:id="@+id/categoryCoffee"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/cofee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/categorySushi" />
+
+    <TextView
+        android:id="@+id/coffeeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/coffe_house"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/categoryCoffee"
+        app:layout_constraintStart_toStartOf="@+id/categoryCoffee"
+        app:layout_constraintTop_toBottomOf="@+id/categoryCoffee" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

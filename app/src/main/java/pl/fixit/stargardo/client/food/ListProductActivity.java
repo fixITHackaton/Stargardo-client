@@ -29,99 +29,97 @@ public class ListProductActivity extends AppCompatActivity {
         final ListView listView = findViewById(R.id.productListView);
 
 
-        List<ProductDto> products = new ArrayList<>();
-        CompanySearchCriteriaDto searchCriteriaDto = new CompanySearchCriteriaDto();
-        searchCriteriaDto.setCompanyCategory(CompanyCategory.FOOD);
-        AndroidNetworking.post("http://10.0.2.2:8080/products")
-//                .setPriority(Priority.MEDIUM)
-//                .setTag("test")
-                .addHeaders("Content-Type", "application/json")
-                .addApplicationJsonBody(searchCriteriaDto)
-                .build()
-                .getAsObjectList(CompanyDto.class, new ParsedRequestListener<List<CompanyDto>>() {
-                    @Override
-                    public void onResponse(List<CompanyDto> users) {
-                        companiesList.addAll(users);
-                        Log.d("weszło kurła", "kurła");
-                    }
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d("nie kurła", anError.toString());
-                    }
-                });
+        List<ProductDto> productList = new ArrayList<>();
+//        AndroidNetworking.get("http://10.0.2.2:8080/companies/1")
+////                .setPriority(Priority.MEDIUM)
+////                .setTag("test")
+//                .build()
+//                .getAsObjectList(ProductDto.class, new ParsedRequestListener<List<ProductDto>>() {
+//                    @Override
+//                    public void onResponse(List<ProductDto> products) {
+//                        productList.addAll(products);
+//                        Log.d("weszło kurła", "kurła");
+//                    }
+//                    @Override
+//                    public void onError(ANError anError) {
+//                        Log.d("nie kurła", anError.toString());
+//                    }
+//                });
 
 
         ////////////////////////////////////////////
-//        long l = 0L;
-//        ProductDto productDto = new ProductDto();
-//        productDto.setName("Margherita");
-//        productDto.setPrice(19.99);
-//        productDto.setDescription("pizza1");
-//        products.add(productDto);
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Capricciosa");
-//        productDto.setPrice(18.99);
-//        productDto.setDescription("pizza2");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Hawajska");
-//        productDto.setPrice(20.99);
-//        productDto.setDescription("pizza3");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Meksykańska");
-//        productDto.setPrice(24.99);
-//        productDto.setDescription("pizza4");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Pepperoni");
-//        productDto.setPrice(17.99);
-//        productDto.setDescription("pizza1");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Margarina");
-//        productDto.setPrice(32.99);
-//        productDto.setDescription("pizza2");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Na wypasie");
-//        productDto.setPrice(39.99);
-//        productDto.setDescription("pizza3");
-//        products.add(productDto);
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Fungi");
-//        productDto.setPrice(25.99);
-//        productDto.setDescription("pizza4");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Wiejska");
-//        productDto.setPrice(29.99);
-//        productDto.setDescription("pizza1");
-//        products.add(productDto);
-//
-//
-//        productDto = new ProductDto();
-//        productDto.setName("Ekstrawaganza");
-//        productDto.setPrice(19.99);
-//        productDto.setDescription("pizza2");
-//        products.add(productDto);
+        //////// DANE DO MOCKOW
+        ////////////////////////////////////////////
+        long l = 0L;
+        ProductDto productDto = new ProductDto();
+        productDto.setName("Margherita");
+        productDto.setPrice(19.99);
+        productDto.setDescription("pizza1");
+        productList.add(productDto);
+
+        productDto = new ProductDto();
+        productDto.setName("Capricciosa");
+        productDto.setPrice(18.99);
+        productDto.setDescription("pizza2");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Hawajska");
+        productDto.setPrice(20.99);
+        productDto.setDescription("pizza3");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Meksykańska");
+        productDto.setPrice(24.99);
+        productDto.setDescription("pizza4");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Pepperoni");
+        productDto.setPrice(17.99);
+        productDto.setDescription("pizza1");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Margarina");
+        productDto.setPrice(32.99);
+        productDto.setDescription("pizza2");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Na wypasie");
+        productDto.setPrice(39.99);
+        productDto.setDescription("pizza3");
+        productList.add(productDto);
+
+        productDto = new ProductDto();
+        productDto.setName("Fungi");
+        productDto.setPrice(25.99);
+        productDto.setDescription("pizza4");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Wiejska");
+        productDto.setPrice(29.99);
+        productDto.setDescription("pizza1");
+        productList.add(productDto);
+
+
+        productDto = new ProductDto();
+        productDto.setName("Ekstrawaganza");
+        productDto.setPrice(19.99);
+        productDto.setDescription("pizza2");
+        productList.add(productDto);
         /////////////////////////////////////////////////////////
 
-        final ProductListAdapter adapter = new ProductListAdapter(this, products);
+        final ProductListAdapter adapter = new ProductListAdapter(this, productList);
         listView.setAdapter(adapter);
     }
 }

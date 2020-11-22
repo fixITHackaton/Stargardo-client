@@ -14,7 +14,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/button_pattern"
         android:text="@string/log_in_button_text"
         app:layout_constraintBottom_toTopOf="@+id/foodButton"
         app:layout_constraintEnd_toEndOf="parent"
