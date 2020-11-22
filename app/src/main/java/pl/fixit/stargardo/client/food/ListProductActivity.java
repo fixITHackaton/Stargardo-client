@@ -28,7 +28,7 @@ public class ListProductActivity extends AppCompatActivity {
 
         List<ProductDto> productList = new ArrayList<>();
         Activity activity = this;
-        AndroidNetworking.get("http://10.0.2.2:8080/companies/1")
+        AndroidNetworking.get("http://10.0.2.2:8080/companies/" + CompanyInfo.CURRENT_COMPANY_ID)
                 .build()
                 .getAsObjectList(ProductDto.class, new ParsedRequestListener<List<ProductDto>>() {
                     @Override
@@ -114,7 +114,7 @@ public class ListProductActivity extends AppCompatActivity {
 //        productDto.setPrice(19.99);
 //        productDto.setDescription("pizza2");
 //        productList.add(productDto);
-
+//
 //        final ProductListAdapter adapter = new ProductListAdapter(this, productList);
 //        listView.setAdapter(adapter);
         /////////////////////////////////////////////////////////

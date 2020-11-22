@@ -15,7 +15,11 @@
         <item name="buttonStyle">@style/BlueButton</item>
     </style>
     <style name="BlueButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:background">@drawable/blue_button_selector</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="GreenButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/green_button_selector</item>
         <item name="android:textColor">@color/white</item>
     </style>
 </resources>

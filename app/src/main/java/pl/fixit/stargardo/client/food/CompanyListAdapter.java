@@ -60,11 +60,15 @@ class CompanyListAdapter extends ArrayAdapter<CompanyDto> {
         openTime.setText(company.getOpeningHour() + "-" + company.getClosingHour());
 
         ImageView companyIcon = convertView.findViewById(R.id.companyIcon);
-        RelativeLayout.LayoutParams imageProcessParams =
-                (RelativeLayout.LayoutParams)companyIcon.getLayoutParams();
-        byte[] image = Base64.getDecoder().decode(company.getImage());
-        Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length);
-        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, imageProcessParams.width, imageProcessParams.height, false));
+        Resources res = context.getResources();
+        int resID = res.getIdentifier(company.getDescription() , "drawable", context.getPackageName());
+        Drawable drawable = res.getDrawable(resID);
+        companyIcon.setImageDrawable(drawable);
+//        RelativeLayout.LayoutParams imageProcessParams =
+//                (RelativeLayout.LayoutParams)companyIcon.getLayoutParams();
+//        byte[] image = Base64.getDecoder().decode(company.getImage());
+//        Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length);
+//        companyIcon.setImageBitmap(Bitmap.createScaledBitmap(bmp, imageProcessParams.width, imageProcessParams.height, false));
         return convertView;
     }
 }
