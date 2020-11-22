@@ -19,4 +19,16 @@
     <string name="password_edittext_text">Hasło</string>
     <string name="sign_in_button_text">Zaloguj</string>
     <string name="register_textview_text">Chcesz dołączyć? Zarejestruj się</string>
+    <string name="backend_get_companies">http://localhost:8080/companies</string>
+
+    <string name="menu_current_orders_button">Aktualne zamówienia</string>
+    <string name="menu_add_product_button">Dodaj produkt</string>
+    <string name="menu_edit_product_button">Edytuj produkt</string>
+    <string name="menu_profile_button">Edytuj profil</string>
+    <string name="menu_history_orders_button">Historia zamówień</string>
+    <string name="add_product_save_button">Zapisz</string>
+    <string name="add_product_add_photo_button">Dodaj zdjęcie</string>
+    <string name="add_product_description">Opis</string>
+    <string name="add_product_price">Cena</string>
+    <string name="add_product_name">Nazwa produktu</string>
 </resources>

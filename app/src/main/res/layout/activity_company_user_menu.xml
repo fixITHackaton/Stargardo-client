@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".company.CompanyUserMenuActivity">
+
+    <Button
+        android:id="@+id/menuCurrentOrders"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_pattern"
+        android:text="@string/menu_current_orders_button"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/menuAddProduct"/>
+
+    <Button
+        android:id="@+id/menuAddProduct"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_pattern"
+        android:text="@string/menu_add_product_button"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/menuEditProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuCurrentOrders" />
+
+    <Button
+        android:id="@+id/menuEditProduct"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:background="@drawable/button_pattern"
+        android:text="@string/menu_edit_product_button"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuHistoryOrders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuAddProduct" />
+
+    <Button
+        android:id="@+id/menuHistoryOrders"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_pattern"
+        android:text="@string/menu_history_orders_button"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/menuProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuEditProduct" />
+
+    <Button
+        android:id="@+id/menuProfile"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_pattern"
+        android:text="@string/menu_profile_button"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuHistoryOrders" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

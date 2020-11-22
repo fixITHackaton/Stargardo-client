@@ -12,7 +12,6 @@ import java.util.List;
 import pl.fixit.stargardo.client.R;
 
 import pl.fixit.stargardo.common.order.dto.OrderDto;
-import pl.fixit.stargardo.common.product.dto.ProductDto;
 
 public class CompanyUserActiveOrdersAdapter extends ArrayAdapter<OrderDto> {
     private final Context context;
@@ -33,15 +32,15 @@ public class CompanyUserActiveOrdersAdapter extends ArrayAdapter<OrderDto> {
         }
 
         OrderDto order = orders.get(position);
-        TextView productName = convertView.findViewById(R.id.productName);
-        productName.setText(order.getName());
-        TextView productPrice = convertView.findViewById(R.id.productPrice);
-        productPrice.setText(order.getPrice().toString() + "zł");
-        ImageView companyIcon = convertView.findViewById(R.id.productIcon);
-        Resources res = context.getResources();
-        int resID = res.getIdentifier(product.getDescription(), "drawable", context.getPackageName());
-        Drawable drawable = res.getDrawable(resID);
-        companyIcon.setImageDrawable(drawable);
+        TextView orderId = convertView.findViewById(R.id.orderId);
+        orderId.setText(String.valueOf(order.getId()));
+        TextView orderAddress = convertView.findViewById(R.id.orderAddress);
+        orderAddress.setText(order.getAddress());
+        // TODO - dodać orderSTatus i orderDate do OrderDto
+        TextView orderStatus = convertView.findViewById(R.id.orderStatus);
+        orderStatus.setText("SPRZEDANE");
+        TextView orderDate = convertView.findViewById(R.id.orderDate);
+        orderDate.setText("10:00 17.02.2020");
         return convertView;
     }
 }

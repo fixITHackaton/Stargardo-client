@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".company.CompanyUserAddProductActivity">
+    <EditText
+        android:id="@+id/addProductName"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="40dp"
+        android:hint="@string/add_product_name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/addProductPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addProductPrice"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/add_product_price"
+        app:layout_constraintBottom_toTopOf="@+id/addProductDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductName" />
+
+    <EditText
+        android:id="@+id/addProductDescription"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/add_product_description"
+        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductPrice" />
+
+    <Button
+        android:id="@+id/addProductPhotoButton"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_product_add_photo_button"
+        android:background="@drawable/button_pattern"
+        app:layout_constraintBottom_toTopOf="@+id/addProductPhotoImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductDescription" />
+
+    <ImageView
+        android:id="@+id/addProductPhotoImage"
+        android:layout_width="217dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/addProductSaveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductPhotoButton" />
+
+    <Button
+        android:id="@+id/addProductSaveButton"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_product_save_button"
+        android:background="@drawable/button_pattern"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addProductPhotoImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

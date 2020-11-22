@@ -11,6 +11,8 @@ import pl.fixit.stargardo.client.company.CompanyUserActiveOrdersActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static long COMPANY_ID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
