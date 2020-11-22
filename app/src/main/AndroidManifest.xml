@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stargardo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".login.RegisterActivity"></activity>
         <activity android:name=".company.CompanyUserAddProductActivity" />
         <activity android:name=".company.CompanyUserMenuActivity" />
         <activity android:name=".company.CompanyUserActiveOrdersActivity" />
